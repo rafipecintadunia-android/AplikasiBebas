@@ -24,7 +24,7 @@ public class MainActivity extends Activity {
         t.setText("RAFI\nDEVELOPER");
         t.setTextSize(36); t.setTextColor(Color.WHITE); t.setGravity(Gravity.CENTER);
         TextView s = new TextView(this);
-        s.setText("\nLoading... v1.3"); s.setTextColor(Color.WHITE); s.setGravity(Gravity.CENTER);
+        s.setText("\nLoading... v1.6"); s.setTextColor(Color.WHITE); s.setGravity(Gravity.CENTER);
         l.addView(t); l.addView(s);
         setContentView(l);
         new Handler().postDelayed(() -> showLogin(), 2000);
@@ -55,10 +55,11 @@ public class MainActivity extends Activity {
     }
 
     void showDashboard() {
+        ScrollView scroll = new ScrollView(this);
         LinearLayout layout = new LinearLayout(this);
         layout.setOrientation(LinearLayout.VERTICAL);
         layout.setBackgroundColor(Color.parseColor("#F3E8FF"));
-        layout.setPadding(40, 80, 40, 40); layout.setGravity(Gravity.CENTER_HORIZONTAL);
+        layout.setPadding(40, 60, 40, 40); layout.setGravity(Gravity.CENTER_HORIZONTAL);
         TextView title = new TextView(this);
         title.setText("RAFI DEVELOPER"); title.setTextSize(30);
         title.setTextColor(Color.parseColor("#7C3AED")); title.setGravity(Gravity.CENTER);
@@ -71,16 +72,43 @@ public class MainActivity extends Activity {
         btn2.setBackgroundColor(Color.parseColor("#059669")); btn2.setTextColor(Color.WHITE);
         Button btn3 = new Button(this); btn3.setText("🚀 PUBLISH TO PLAY STORE");
         btn3.setBackgroundColor(Color.parseColor("#DC2626")); btn3.setTextColor(Color.WHITE);
+        Button btn4 = new Button(this); btn4.setText("💬 CHAT WHATSAPP RAFI");
+        btn4.setBackgroundColor(Color.parseColor("#25D366")); btn4.setTextColor(Color.WHITE);
+        Button btn5 = new Button(this); btn5.setText("▶️ YOUTUBE @steven-d1k4i");
+        btn5.setBackgroundColor(Color.parseColor("#FF0000")); btn5.setTextColor(Color.WHITE);
+        Button btn6 = new Button(this); btn6.setText("📸 INSTAGRAM RAFI");
+        btn6.setBackgroundColor(Color.parseColor("#E1306C")); btn6.setTextColor(Color.WHITE);
+        Button btn7 = new Button(this); btn7.setText("🚪 LOGOUT");
+        btn7.setBackgroundColor(Color.parseColor("#111827")); btn7.setTextColor(Color.WHITE);
         TextView status = new TextView(this);
-        status.setText("\nOwner: Rafi Pecinta Dunia ✅\nVersion 1.3 - Clickable Edition"); status.setGravity(Gravity.CENTER);
-        layout.addView(title); layout.addView(sub); layout.addView(btn1); layout.addView(btn2); layout.addView(btn3); layout.addView(status);
-        setContentView(layout);
+        status.setText("\nOwner: Rafi Pecinta Dunia ✅\nVersion 1.6 - WA + YouTube @steven-d1k4i"); status.setGravity(Gravity.CENTER);
+        layout.addView(title); layout.addView(sub);
+        layout.addView(btn1); layout.addView(btn2); layout.addView(btn3);
+        layout.addView(btn4); layout.addView(btn5); layout.addView(btn6); layout.addView(btn7);
+        layout.addView(status);
+        scroll.addView(layout);
+        setContentView(scroll);
         btn1.setOnClickListener(v -> showMyApps());
         btn2.setOnClickListener(v -> showStats());
         btn3.setOnClickListener(v -> {
             Toast.makeText(this, "Membuka Play Store...", Toast.LENGTH_SHORT).show();
-            Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/search?q=Rafi%20Developer&c=apps"));
-            startActivity(i);
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/search?q=Rafi%20Developer&c=apps")));
+        });
+        btn4.setOnClickListener(v -> {
+            Toast.makeText(this, "Membuka WhatsApp 081949980384...", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://wa.me/6281949980384?text=Halo%20Rafi%20Developer!%20Saya%20dari%20aplikasi%20kamu")));
+        });
+        btn5.setOnClickListener(v -> {
+            Toast.makeText(this, "Membuka YouTube @steven-d1k4i...", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://youtube.com/@steven-d1k4i")));
+        });
+        btn6.setOnClickListener(v -> {
+            Toast.makeText(this, "Membuka Instagram...", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://instagram.com/rafipecintadunia")));
+        });
+        btn7.setOnClickListener(v -> {
+            Toast.makeText(this, "Logout Berhasil, Sampai Jumpa Rafi!", Toast.LENGTH_SHORT).show();
+            showLogin();
         });
     }
 
@@ -92,7 +120,7 @@ public class MainActivity extends Activity {
         TextView t = new TextView(this); t.setText("📱 MY APPS"); t.setTextSize(28);
         t.setTextColor(Color.parseColor("#7C3AED")); t.setGravity(Gravity.CENTER);
         TextView list = new TextView(this);
-        list.setText("\n1. Rafi Developer v1.3 ✅\n   - Login + Splash + Dashboard\n   - 1.2K Download\n\n2. Sakti Bot Official\n   - Coming Soon\n\n3. Hello World\n   - Coming Soon\n");
+        list.setText("\n1. Rafi Developer v1.6 ✅\n   - Login + Splash + Dashboard\n   - 1.2K Download\n\n2. Sakti Bot Official\n   - Coming Soon\n\n3. Hello World\n   - Coming Soon\n");
         list.setTextSize(16); list.setBackgroundColor(Color.WHITE); list.setPadding(30,30,30,30);
         Button back = new Button(this); back.setText("⬅ KEMBALI");
         back.setBackgroundColor(Color.parseColor("#111827")); back.setTextColor(Color.WHITE);
